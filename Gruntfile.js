@@ -72,7 +72,7 @@ module.exports = function(grunt) {
         options: {
           host: '192.168.62.129',
           username: 'art',
-          password: 'fg'
+          password: 'fj'
         }
       }
     },
@@ -96,6 +96,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-exec');
+  grunt.loadNpmTasks('grunt-ssh');
 
   // Default task.
   grunt.registerTask('default', ['jshint', 'qunit', 'concat', 'uglify']);
