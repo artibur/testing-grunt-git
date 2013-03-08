@@ -66,6 +66,17 @@ module.exports = function(grunt) {
       }
     },
 
+    sshexec: {
+      live_pull: {
+        command: 'cd ~/testing-grunt-git && git pull origin master',
+        options: {
+          host: '192.168.62.129',
+          username: 'art',
+          password: 'fg'
+        }
+      }
+    }
+
     watch: {
       gruntfile: {
         files: '<%= jshint.gruntfile.src %>',
@@ -89,6 +100,6 @@ module.exports = function(grunt) {
   // Default task.
   grunt.registerTask('default', ['jshint', 'qunit', 'concat', 'uglify']);
 
-  grunt.registerTask('deploy',['exec:pull','exec:push']);
+  grunt.registerTask('deploy',['exec:pull','exec:push','sshexec:live_pull']);
 
 };
