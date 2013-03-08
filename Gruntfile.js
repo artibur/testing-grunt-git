@@ -57,12 +57,12 @@ module.exports = function(grunt) {
       files: ['test/**/*.html']
     },
 
-    git: {
-      your_target: {
-        options: {
-          command: 'commit'
-          // Target-specific options go here.
-        }
+    exec: {
+      pull: {
+        command: 'git pull origin master'
+      },
+      push: {
+        command: 'git push origin master'
       }
     },
 
@@ -84,9 +84,11 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-nodeunit');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-contrib-git');
+  grunt.loadNpmTasks('grunt-exec');
 
   // Default task.
   grunt.registerTask('default', ['jshint', 'qunit', 'concat', 'uglify']);
+
+  grunt.registerTask('deploy',['exec:pull','exec:push']);
 
 };
