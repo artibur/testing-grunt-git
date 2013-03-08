@@ -75,7 +75,7 @@ module.exports = function(grunt) {
           password: 'fg'
         }
       }
-    }
+    },
 
     watch: {
       gruntfile: {
